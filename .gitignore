@@ -1,0 +1,11 @@
+out/
+lib/
+target/
+.idea/
+*.iml
+*.iws
+build/
+dist/
+lib/
+test.build/
+test-report/
