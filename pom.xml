@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.goit.enterprise.module_2</groupId>
+    <groupId>ua.goit.enterprise.module_1</groupId>
     <artifactId>collections</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -28,6 +28,8 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!-- to create executable jar file in target directory-->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -36,6 +38,37 @@
                             <mainClass>enterprise.module_1.Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+
+
+            <!-- to run jar file in terminal - mvn exec:exec-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <workingDirectory>target</workingDirectory>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-jar</argument>
+                        <argument>collections-1.0-SNAPSHOT.jar</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+
+            <!-- to run jar file in terminal - mvn exec:java-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <workingDirectory>target</workingDirectory>
+                    <mainClass>enterprise.module_1.Main</mainClass>
+                    <arguments>
+                        <argument>-jar</argument>
+                        <argument>collections-1.0-SNAPSHOT.jar</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
